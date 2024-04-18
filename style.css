@@ -1,0 +1,131 @@
+.stbb--pagination {
+	display: flex;
+	gap: 0.25em;
+	> .stbb--pg-prev,
+	> .stbb--pg-next,
+	> .stbb--pg-num
+	{
+		aspect-ratio: 1 / 1;
+		text-align: center;
+		opacity: 0.5;
+		&.stbb--disabled {
+			opacity: 0.25;
+		}
+		&.stbb--pg-current {
+			opacity: 1;
+		}
+	}
+}
+html > body .stbb--item {
+	margin-bottom: 2em;
+	> .stbb--head {
+		background-color: hsl(from var(--SmartThemeBotMesBlurTintColor) h s calc(l + 0.5));
+		border-radius: 10px 10px 0 0;
+		border: 1px solid var(--SmartThemeBorderColor);
+		border-bottom: 0;
+		color: var(--SmartThemeEmColor);
+		padding: 4px 10px;
+		display: flex;
+		align-items: baseline;
+		gap: 1em;
+		> .stbb--details {
+			display: flex;
+			flex-direction: row;
+			gap: 1em;
+			> .stbb--date {
+			}
+			> .stbb--size {
+				color: var(--SmartThemeEmColor);
+				text-align: right;
+			}
+		}
+		> .stbb--actions {
+			flex: 1 1 auto;
+			display: flex;
+			gap: 0.5em;
+			justify-content: flex-end;
+			align-items: baseline;
+			> .menu_button {
+				aspect-ratio: 1 / 1;
+				margin: 0;
+			}
+		}
+	}
+	> .stbb--body {
+		background-color: var(--SmartThemeBotMesBlurTintColor);
+		border-radius: 0 0 10px 10px;
+		border: 1px solid var(--SmartThemeBorderColor);
+		border-top: none;
+		padding: 0 10px 5px 10px;
+		margin-left: 2em;
+		opacity: 0.75;
+		transition: 200ms;
+		width: unset;
+		cursor: pointer;
+		&:hover { opacity: 1; }
+		> .mes_text {
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 3;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			font-size: smaller;
+			padding: 0;
+			margin: 0;
+			line-height: 1.5;
+			height: calc(1.5em * 3);
+			&.stbb--expand {
+				-webkit-line-clamp: unset;
+				height: unset;
+				pre { display: block; }
+			}
+			pre { display: none; }
+		}
+	}
+}
+
+
+html > body .shadow_popup .stbb--message {
+	padding: 0;
+	border-radius: 0;
+	background-color: transparent;
+	border: none;
+	text-align: left;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 0;
+	> .stbb--head {
+		background-color: hsl(from var(--SmartThemeBotMesBlurTintColor) h s calc(l + 0.5));
+		border-radius: 10px 10px 0 0;
+		border: 1px solid var(--SmartThemeBorderColor);
+		border-bottom: 0;
+		color: var(--SmartThemeEmColor);
+		display: flex;
+		gap: 1em;
+		padding: 4px 10px;
+		> .stbb--index:before {
+			content: '#';
+			opacity: 0.5;
+		}
+		> .stbb--swipes {
+			opacity: 0.5;
+			cursor: default;
+			&.stbb--clickable {
+				cursor: pointer;
+				opacity: 1;
+			}
+		}
+	}
+	> .mes_text {
+		background-color: var(--SmartThemeBotMesBlurTintColor);
+		border-radius: 0 0 10px 10px;
+		border: 1px solid var(--SmartThemeBorderColor);
+		border-top: none;
+		padding: 0 10px;
+		margin-left: 2em;
+	}
+}
+
+.stbb--swipesDlg {
+	text-align: left;
+}
