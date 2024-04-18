@@ -428,16 +428,3 @@ registerSlashCommand('backups',
     true,
     true,
 );
-
-
-(async()=>{
-    const result = await fetch('/api/plugins/files/list', {
-        method: 'POST',
-        headers: getRequestHeaders(),
-        body: JSON.stringify({ folder: '~/characters' }),
-    });
-    if (!result.ok) {
-        toastr.error(`${result.status}: ${result.statusText}`, 'Something went wrong.');
-        return;
-    }
-})();
