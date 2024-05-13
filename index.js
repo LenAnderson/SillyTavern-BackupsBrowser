@@ -2,13 +2,13 @@ import { characters, getPastCharacterChats, getRequestHeaders, messageFormatting
 import { getContext } from '../../../extensions.js';
 import { getGroupPastChats, importGroupChat, openGroupChat, selected_group } from '../../../group-chats.js';
 import { POPUP_TYPE, Popup } from '../../../popup.js';
-import { registerSlashCommand } from '../../../slash-commands.js';
-import { sortMoments, timestampToMoment } from '../../../utils.js';
+import { SlashCommand } from '../../../slash-commands/SlashCommand.js';
+import { SlashCommandParser } from '../../../slash-commands/SlashCommandParser.js';
 
 
 
-registerSlashCommand('backups',
-    async(args, value)=>{
+SlashCommandParser.addCommandObject(SlashCommand.fromProps({ name: 'backups',
+    callback: async(args, value)=>{
         /**@type {HTMLElement[]}*/
         let pagination = [];
         /**@type {HTMLElement}*/
@@ -423,8 +423,5 @@ registerSlashCommand('backups',
         console.log('[BACKUPS]', fileId, data);
         renderList();
     },
-    [],
-    '<span class="monospace"></span> – Browse chat backups.',
-    true,
-    true,
-);
+    helpString: 'Browse chat backups.',
+}));
