@@ -216,7 +216,7 @@ SlashCommandParser.addCommandObject(SlashCommand.fromProps({ name: 'backups',
                                     const result = await fetch('/api/plugins/files/get', {
                                         method: 'POST',
                                         headers: getRequestHeaders(),
-                                        body: JSON.stringify({ path: `/backups/${file.path}` }),
+                                        body: JSON.stringify({ path: `~/backups/${file.path}` }),
                                     });
                                     if (!result.ok) {
                                         toastr.error(`${result.status}: ${result.statusText}`, 'Something went wrong.');
@@ -240,7 +240,7 @@ SlashCommandParser.addCommandObject(SlashCommand.fromProps({ name: 'backups',
                                     const result = await fetch('/api/plugins/files/get', {
                                         method: 'POST',
                                         headers: getRequestHeaders(),
-                                        body: JSON.stringify({ path: `/backups/${file.path}` }),
+                                        body: JSON.stringify({ path: `~/backups/${file.path}` }),
                                     });
                                     if (!result.ok) {
                                         toastr.error(`${result.status}: ${result.statusText}`, 'Something went wrong.');
@@ -312,7 +312,7 @@ SlashCommandParser.addCommandObject(SlashCommand.fromProps({ name: 'backups',
                                 const result = await fetch('/api/plugins/files/get/last-line', {
                                     method: 'POST',
                                     headers: getRequestHeaders(),
-                                    body: JSON.stringify({ path: `/backups/${file.path}` }),
+                                    body: JSON.stringify({ path: `~/backups/${file.path}` }),
                                 });
                                 if (!result.ok) {
                                     return;
@@ -390,7 +390,7 @@ SlashCommandParser.addCommandObject(SlashCommand.fromProps({ name: 'backups',
         const result = await fetch('/api/plugins/files/list', {
             method: 'POST',
             headers: getRequestHeaders(),
-            body: JSON.stringify({ path: '/backups' }),
+            body: JSON.stringify({ path: '~/backups' }),
         });
         if (!result.ok) {
             toastr.error(`${result.status}: ${result.statusText}`, 'Something went wrong.');
