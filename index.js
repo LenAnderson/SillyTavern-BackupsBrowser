@@ -137,7 +137,7 @@ SlashCommandParser.addCommandObject(SlashCommand.fromProps({ name: 'backups',
                                                                         }
                                                                     }
                                                                 }
-                                                                const dlg = new Popup(dom, POPUP_TYPE.TEXT, null, { okButton:'Back', wide:true });
+                                                                const dlg = new Popup(dom, POPUP_TYPE.TEXT, null, { okButton:'Back', wide:true, allowVerticalScrolling:true });
                                                                 dlg.show();
                                                             });
                                                         }
@@ -211,7 +211,7 @@ SlashCommandParser.addCommandObject(SlashCommand.fromProps({ name: 'backups',
                                             pg.replaceChildren(makePagination());
                                         }
                                     };
-                                    const dlg = new Popup(dom, POPUP_TYPE.TEXT, null, { okButton:'Back', wide:true });
+                                    const dlg = new Popup(dom, POPUP_TYPE.TEXT, null, { okButton:'Back', wide:true, allowVerticalScrolling:true });
                                     dlg.show();
                                     const result = await fetch('/api/plugins/files/get', {
                                         method: 'POST',
@@ -220,7 +220,7 @@ SlashCommandParser.addCommandObject(SlashCommand.fromProps({ name: 'backups',
                                     });
                                     if (!result.ok) {
                                         toastr.error(`${result.status}: ${result.statusText}`, 'Something went wrong.');
-                                        dlg.hide();
+                                        dlg.complete('fuck you, too');
                                         return;
                                     }
                                     const chat = JSON.parse(`[${(await result.text()).replace(/\n/g, ',')}]`).toReversed();
@@ -244,7 +244,7 @@ SlashCommandParser.addCommandObject(SlashCommand.fromProps({ name: 'backups',
                                     });
                                     if (!result.ok) {
                                         toastr.error(`${result.status}: ${result.statusText}`, 'Something went wrong.');
-                                        dlg.hide();
+                                        dlg.complete('fuck you, too');
                                         return;
                                     }
                                     const f = new File([await result.blob()], file.path.slice(5));
@@ -292,7 +292,7 @@ SlashCommandParser.addCommandObject(SlashCommand.fromProps({ name: 'backups',
                                             },
                                         });
                                     }
-                                    dlg.hide();
+                                    dlg.complete('fuck you, too');
                                 });
                                 actions.append(restore);
                             }
@@ -385,7 +385,7 @@ SlashCommandParser.addCommandObject(SlashCommand.fromProps({ name: 'backups',
                 pg.replaceChildren(makePagination());
             }
         };
-        const dlg = new Popup(dom, POPUP_TYPE.TEXT, null, { okButton:'Close', wide:true });
+        const dlg = new Popup(dom, POPUP_TYPE.TEXT, null, { okButton:'Close', wide:true, allowVerticalScrolling:true });
         dlg.show();
         const result = await fetch('/api/plugins/files/list', {
             method: 'POST',
@@ -394,7 +394,7 @@ SlashCommandParser.addCommandObject(SlashCommand.fromProps({ name: 'backups',
         });
         if (!result.ok) {
             toastr.error(`${result.status}: ${result.statusText}`, 'Something went wrong.');
-            dlg.hide();
+            dlg.complete('fuck you, too');
             return;
         }
         let fileId;

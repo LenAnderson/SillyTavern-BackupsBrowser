@@ -85,7 +85,7 @@ html > body .stbb--item {
 }
 
 
-html > body .shadow_popup .stbb--message {
+html > body .popup .stbb--message {
 	padding: 0;
 	border-radius: 0;
 	background-color: transparent;
